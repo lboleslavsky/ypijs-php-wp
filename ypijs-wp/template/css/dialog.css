@@ -1,0 +1,53 @@
+﻿body 
+{
+    background:lightgray;
+}
+
+/*Base dialog element style*/
+.bubble
+{
+    position: absolute;
+    bottom: 60px;
+    left:-5px;
+    width: 250px;
+    padding: 15px;
+    background: lightsteelblue; 
+    color:white;
+    display:none;   
+}
+
+.bubble:after 
+{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 30px;
+    border-style: solid;
+    border-width: 5px 5px 0;
+    border-color: lightsteelblue transparent ;
+    display: block;
+    width: 0;
+    z-index: 1;
+}
+
+.avatar
+{
+    display:block;
+    position:absolute;
+    bottom:5px;
+    left:5px;
+    width:35px;
+    height:35px;
+    /*border:1px solid lightsteelblue;  */
+    background-image:url('http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=34');
+}
+
+/*Bounding box*/
+.region
+{
+    position:relative;   
+    width: 50px;
+    height: 50px;    
+   /* border:1px solid black;       */
+    background:transparent;  
+}
