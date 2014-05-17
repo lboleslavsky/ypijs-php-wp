@@ -26,6 +26,9 @@ class Resource {
     const SHORT_TAG_IS_AUTOSTART = 'isautostart';
     const SHORT_TAG_IS_SOUND_ENABLED = 'issoundenabled';   
     const SHORT_TAG_CUSTOM_CSS = 'class';
+    const SHORT_TAG_AVATAR_IMG = 'img';
+    const SHORT_TAG_AVATAR_W = 'w';
+    const SHORT_TAG_AVATAR_H = 'h';
       
     /*
      * parameters
@@ -39,6 +42,9 @@ class Resource {
     const PARAM_IS_AUTOSTART='isAutostart';
     const PARAM_IS_SOUND_ENABLED = 'isSoundEnabled';
     const PARAM_CUSTOM_CSS='class';
+    const PARAM_AVATAR_IMG ='img';
+    const PARAM_AVATAR_W = 'w';
+    const PARAM_AVATAR_H = 'h';
     const WIDGET_PARAM_DESCR = 'description';
     
     /*
@@ -63,7 +69,12 @@ class Resource {
     const DEFAULT_EMPTY = '';
     const DEFAULT_NPC_PREFIX = 'npc_';
     const DEFAULT_BUBBLE_CSS_CLASS = 'bubble';
-    const DEFAULT_AVATAR_CSS_CLASS = 'avatar';        
+    const DEFAULT_AVATAR_CSS_CLASS = 'avatar'; 
+    const DEFAULT_AVATAR_IMG = 'http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=34';
+    const DEFAULT_AVATAR_W = 30;
+    const DEFAULT_AVATAR_H = 30;
+    const MAX_AVATAR_W = 100;
+    const MAX_AVATAR_H = 100;
     const RENDER_CONTENT_PANEL='<div id="dialog"></div>'; 
     const TAG_P_BEGIN = '<p>';
     const TAG_P_END = '</p>';
@@ -125,4 +136,7 @@ class Resource {
     const WIDGET_OPTIONS_SPEED = 'Speech speed';
     const WIDGET_OPTIONS_ALIAS = 'Alias';
     const WIDGET_OPTIONS_CSS = 'CSS class';
+    const WIDGET_OPTIONS_IMG = 'Image URL';
+    const WIDGET_OPTIONS_W = 'Image Width';
+    const WIDGET_OPTIONS_H = 'Image Height';
 }

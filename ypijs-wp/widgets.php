@@ -120,7 +120,10 @@ class YpiAvatarWidget extends YpiBaseWidget
         $speed= $this->getValueOrDefault(Resource::PARAM_SPEED, $instance, Resource::DEFAULT_SPEED);
         $alias = $this->getValueOrDefault(Resource::PARAM_ALIAS, $instance, Resource::DEFAULT_EMPTY); 
         $css = $this->getValueOrDefault(Resource::PARAM_CUSTOM_CSS, $instance, Resource::DEFAULT_EMPTY);
-        $params = array(Resource::PARAM_SPEED=> $speed, Resource::PARAM_NAME=>$name,Resource::PARAM_ALIAS=>$alias);        
+        $img = $this->getValueOrDefault(Resource::PARAM_AVATAR_IMG, $instance,  Resource::DEFAULT_AVATAR_IMG);
+        $width = $this->getValueOrDefault(Resource::PARAM_AVATAR_W, $instance, null);
+        $height = $this->getValueOrDefault(Resource::PARAM_AVATAR_H, $instance, null);
+        $params = array(Resource::PARAM_SPEED=> $speed, Resource::PARAM_NAME=>$name,Resource::PARAM_ALIAS=>$alias,  Resource::PARAM_AVATAR_IMG=>$img,Resource::PARAM_AVATAR_W=>$width,Resource::PARAM_AVATAR_H=>$height);        
         echo YpiRender::getInstance()->renderAvatar($params,$css);                                     
     }
     
@@ -133,10 +136,17 @@ class YpiAvatarWidget extends YpiBaseWidget
         $alias = $this->getFieldOrDefault(Resource::PARAM_ALIAS,$instance, Resource::DEFAULT_EMPTY);
         $speed = $this->getFieldOrDefault(Resource::PARAM_SPEED,$instance, Resource::DEFAULT_SPEED);      
         $css =$this->getFieldOrDefault(Resource::PARAM_CUSTOM_CSS, $instance, Resource::DEFAULT_EMPTY);
+        $img = $this->getFieldOrDefault(Resource::PARAM_AVATAR_IMG, $instance, Resource::DEFAULT_EMPTY);
+        $width = $this->getFieldOrDefault(Resource::PARAM_AVATAR_W, $instance, Resource::DEFAULT_EMPTY);
+        $height = $this->getFieldOrDefault(Resource::PARAM_AVATAR_H, $instance, Resource::DEFAULT_EMPTY);
+        
         $content=$this->getInputField(Resource::PARAM_NAME, $name,  Resource::WIDGET_OPTIONS_AVATAR_ID);
         $content.=$this->getInputField(Resource::PARAM_SPEED, $speed, Resource::WIDGET_OPTIONS_SPEED);
         $content.=$this->getInputField(Resource::PARAM_ALIAS, $alias, Resource::WIDGET_OPTIONS_ALIAS);
         $content.=$this->getInputField(Resource::PARAM_CUSTOM_CSS, $css, Resource::WIDGET_OPTIONS_CSS);
+        $content.=$this->getInputField(Resource::PARAM_AVATAR_IMG, $img, Resource::WIDGET_OPTIONS_IMG);
+        $content.=$this->getInputField(Resource::PARAM_AVATAR_W, $width, Resource::WIDGET_OPTIONS_W);
+        $content.=$this->getInputField(Resource::PARAM_AVATAR_H, $height, Resource::WIDGET_OPTIONS_H);
         echo $content;
     }
 }

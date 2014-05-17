@@ -113,8 +113,26 @@ class YpiRender
         if($params[Resource::PARAM_BUBBLE_ID]==null)
         {
             $params[Resource::PARAM_BUBBLE_ID] = Resource::DEFAULT_NPC_PREFIX.$params[Resource::PARAM_NAME]; 
+        }        
+        if($params[Resource::PARAM_AVATAR_IMG]!=null)
+        {
+            $w = Resource::DEFAULT_AVATAR_W;
+            $h = Resource::DEFAULT_AVATAR_H;       
+            if($params[Resource::PARAM_AVATAR_W]>0&&$params[Resource::PARAM_AVATAR_W]<=Resource::MAX_AVATAR_W)
+            {
+                $w = $params[Resource::PARAM_AVATAR_W];
+            }
+            if($params[Resource::PARAM_AVATAR_H]>0&&$params[Resource::PARAM_AVATAR_H]<=Resource::MAX_AVATAR_H)
+            {
+                $h = $params[Resource::PARAM_AVATAR_H];
+            }            
+            $avatarContent = '<img id="'.$params[Resource::PARAM_NAME].'" class="'.Resource::DEFAULT_AVATAR_CSS_CLASS.'" src="'.$params[Resource::PARAM_AVATAR_IMG].'" width="'.$w.'" height="'.$h.'" />';
         }
-        $content = '<div class="region '.$classes.'"><div id="'.$params[Resource::PARAM_NAME].'" class="'.Resource::DEFAULT_AVATAR_CSS_CLASS.'"></div><div id="'.$params[Resource::PARAM_BUBBLE_ID].'" class="'.Resource::DEFAULT_BUBBLE_CSS_CLASS.'"></div></div>';
+        else
+        {
+            $avatarContent = '<div id="'.$params[Resource::PARAM_NAME].'" class="'.Resource::DEFAULT_AVATAR_CSS_CLASS.'"></div>';
+        }        
+        $content = '<div class="region '.$classes.'">'.$avatarContent.'<div id="'.$params[Resource::PARAM_BUBBLE_ID].'" class="'.Resource::DEFAULT_BUBBLE_CSS_CLASS.'"></div></div>';
         YpiBox::getInstance()->addAvatar($params);
         return $content;
     }
