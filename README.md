@@ -6,7 +6,7 @@ Installation
 
 - Place ypijs-wp plugin into your WordPress plugin directory
 - Activate plugin in WordPress plugin admin page
-- Place widgets or shortcode to page content(or both). 
+- Place widgets or shortcode to page content (or both). 
 
 Shortcode
 -------------------
