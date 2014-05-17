@@ -38,6 +38,7 @@ Widgets
 
 **YPI Avatar**
 - Avatar
+
 **YPI Panel**
 - Panel with reactions and YPI script base 
 
