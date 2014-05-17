@@ -75,6 +75,7 @@ class Resource {
     const DEFAULT_AVATAR_H = 30;
     const MAX_AVATAR_W = 100;
     const MAX_AVATAR_H = 100;
+    const DEFAULT_BUBBLE_DISTANCE = 20;
     const RENDER_CONTENT_PANEL='<div id="dialog"></div>'; 
     const TAG_P_BEGIN = '<p>';
     const TAG_P_END = '</p>';
