@@ -10,28 +10,28 @@ Installation
 
 Shortcode
 -------------------
-Insert shortcode anywhere to WP content post
+Insert shortcode anywhere to WP content post.
 
 **[ypi_avatar]**
 - Avatar (can be multiple)
 
 | Attribute     | Description      |           
 | ------------- |:----------------:|
-| name          | avatar's ID      |
-| alias         | avatar's alias   |
-| img           | URL to image     |
-| w             | image width      |
-| h             | image height     |
-| speed         | speech speed     |
-| class         | css classname    |
+| name          | Avatar's ID.     |
+| alias         | Avatar's alias.  |
+| img           | URL to image.    |
+| w             | Image width.     |
+| h             | Image height.    |
+| speed         | Speech speed.    |
+| class         | CSS classname.   |
 
 **[ypi_panel]**
 - Panel with reactions and YPI script base
 
 | Attribute     | Description      |           
 | ------------- |:----------------:|
-| chapterUrl    | path to XML file |
-| initState     | case number      |
+| chapterUrl    | Path to XML file.|
+| initState     | Case number.     |
 
 Widgets
 -------------------
