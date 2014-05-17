@@ -12,7 +12,7 @@ Shortcode
 - Insert shortcode anywhere to WP content post
 
 **[ypi_avatar]**
-- Avatar
+- Avatar (can be multiple)
 
 | Attribute     | Description      |           
 | ------------- |:----------------:|
@@ -37,14 +37,17 @@ Widgets
 - Place the widget to specified content panel and set corresponding options. There are two kinds of widgets.
 
 **YPI Avatar**
-- Avatar
+- Avatar (can be multiple)
 
 **YPI Panel**
 - Panel with reactions and YPI script base 
 
+Usage
+-------------------
 It is possible to combine both ways too. However, shortcode inputs overrides widget options. 
 
-- [ypi_panel chapterUrl="http://localhost/content/welcome.xml"]
-
+```txt
+ [ypi_panel chapterUrl="http://localhost/content/welcome.xml"]
+```
 
 
