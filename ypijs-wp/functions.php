@@ -34,9 +34,9 @@ function on_script_required()
  */
 function render_ypi_avatar($attr)
 {
-    $x = shortcode_atts(array(Resource::SHORT_TAG_ATTR_SPEED=>  Resource::DEFAULT_SPEED,  Resource::SHORT_TAG_ATTR_ALIAS=>'',Resource::SHORT_TAG_ATTR_NAME=>  Resource::DEFAULT_AVATAR_NAME,Resource::SHORT_TAG_ATTR_BUBBLE_ID=>null), $attr);    
+    $x = shortcode_atts(array(Resource::SHORT_TAG_ATTR_SPEED=>  Resource::DEFAULT_SPEED,  Resource::SHORT_TAG_ATTR_ALIAS=>'',Resource::SHORT_TAG_ATTR_NAME=>  Resource::DEFAULT_AVATAR_NAME,Resource::SHORT_TAG_ATTR_BUBBLE_ID=>null,  Resource::SHORT_TAG_CUSTOM_CSS=>  Resource::DEFAULT_EMPTY), $attr);    
     $params = array(Resource::PARAM_SPEED=>$x[Resource::SHORT_TAG_ATTR_SPEED],  Resource::PARAM_NAME=>$x[Resource::SHORT_TAG_ATTR_NAME],  Resource::PARAM_BUBBLE_ID=>$x[Resource::SHORT_TAG_ATTR_BUBBLE_ID],  Resource::PARAM_ALIAS=>$x[Resource::SHORT_TAG_ATTR_ALIAS]);
-    $content = YpiRender::getInstance()->renderAvatar($params); 
+    $content = YpiRender::getInstance()->renderAvatar($params,$x[Resource::SHORT_TAG_CUSTOM_CSS]); 
     return $content;
 }
 

@@ -118,9 +118,10 @@ class YpiAvatarWidget extends YpiBaseWidget
         }        
         $name = $this->getValueOrDefault(Resource::PARAM_NAME, $instance, Resource::DEFAULT_AVATAR_NAME);
         $speed= $this->getValueOrDefault(Resource::PARAM_SPEED, $instance, Resource::DEFAULT_SPEED);
-        $alias = $this->getValueOrDefault(Resource::PARAM_ALIAS, $instance, Resource::DEFAULT_EMPTY);        
+        $alias = $this->getValueOrDefault(Resource::PARAM_ALIAS, $instance, Resource::DEFAULT_EMPTY); 
+        $css = $this->getValueOrDefault(Resource::PARAM_CUSTOM_CSS, $instance, Resource::DEFAULT_EMPTY);
         $params = array(Resource::PARAM_SPEED=> $speed, Resource::PARAM_NAME=>$name,Resource::PARAM_ALIAS=>$alias);        
-        echo YpiRender::getInstance()->renderAvatar($params);                                     
+        echo YpiRender::getInstance()->renderAvatar($params,$css);                                     
     }
     
     /**
@@ -130,10 +131,12 @@ class YpiAvatarWidget extends YpiBaseWidget
     public function form($instance) {        
         $name=$this->getFieldOrDefault(Resource::PARAM_NAME,$instance, Resource::DEFAULT_AVATAR_NAME);
         $alias = $this->getFieldOrDefault(Resource::PARAM_ALIAS,$instance, Resource::DEFAULT_EMPTY);
-        $speed = $this->getFieldOrDefault(Resource::PARAM_SPEED,$instance, Resource::DEFAULT_SPEED);                
+        $speed = $this->getFieldOrDefault(Resource::PARAM_SPEED,$instance, Resource::DEFAULT_SPEED);      
+        $css =$this->getFieldOrDefault(Resource::PARAM_CUSTOM_CSS, $instance, Resource::DEFAULT_EMPTY);
         $content=$this->getInputField(Resource::PARAM_NAME, $name,  Resource::WIDGET_OPTIONS_AVATAR_ID);
         $content.=$this->getInputField(Resource::PARAM_SPEED, $speed, Resource::WIDGET_OPTIONS_SPEED);
         $content.=$this->getInputField(Resource::PARAM_ALIAS, $alias, Resource::WIDGET_OPTIONS_ALIAS);
+        $content.=$this->getInputField(Resource::PARAM_CUSTOM_CSS, $css, Resource::WIDGET_OPTIONS_CSS);
         echo $content;
     }
 }

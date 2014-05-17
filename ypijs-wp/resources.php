@@ -24,7 +24,8 @@ class Resource {
     const SHORT_TAG_CHAPTER_URL = 'chapterurl';
     const SHORT_TAG_INIT_STATE = 'initstate';
     const SHORT_TAG_IS_AUTOSTART = 'isautostart';
-    const SHORT_TAG_IS_SOUND_ENABLED = 'issoundenabled';        
+    const SHORT_TAG_IS_SOUND_ENABLED = 'issoundenabled';   
+    const SHORT_TAG_CUSTOM_CSS = 'class';
       
     /*
      * parameters
@@ -37,6 +38,7 @@ class Resource {
     const PARAM_INIT_STATE = 'initState';
     const PARAM_IS_AUTOSTART='isAutostart';
     const PARAM_IS_SOUND_ENABLED = 'isSoundEnabled';
+    const PARAM_CUSTOM_CSS='class';
     const WIDGET_PARAM_DESCR = 'description';
     
     /*
@@ -122,4 +124,5 @@ class Resource {
     const WIDGET_OPTIONS_AVATAR_ID = 'Avatar ID'; 
     const WIDGET_OPTIONS_SPEED = 'Speech speed';
     const WIDGET_OPTIONS_ALIAS = 'Alias';
+    const WIDGET_OPTIONS_CSS = 'CSS class';
 }
