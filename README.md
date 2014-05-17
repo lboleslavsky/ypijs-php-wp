@@ -51,4 +51,18 @@ It is possible to combine both ways too. However, shortcode inputs overrides wid
  [ypi_panel chapterUrl="http://localhost/content/welcome.xml"]
 ```
 
+Multiple avatars. 
+
+```txt 
+ Here is first:
+ 
+ [ypi_avatar name="avatar1"]
+ 
+ And second:
+ 
+ [ypi_avatar name="avatar2"]  
+```
+ 
+ Attribute "name" is linked with attribute "target" in XML dialog definition file. 
+
 
