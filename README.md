@@ -51,7 +51,7 @@ It is possible to combine both ways too. However, shortcode inputs overrides wid
  [ypi_panel chapterUrl="http://localhost/content/welcome.xml"]
 ```
 
-Multiple avatars. 
+**Multiple avatars**
 
 ```txt 
  Here is first:
