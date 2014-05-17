@@ -3,13 +3,14 @@ YPI plugin for WordPress
 
 Installation 
 -------------------
+
 - Place ypijs-wp plugin into your WordPress plugin directory
 - Activate plugin in WordPress plugin admin page
 - Place widgets or shortcode to page content(or both). 
 
 Shortcode
 -------------------
-- Insert shortcode anywhere to WP content post
+Insert shortcode anywhere to WP content post
 
 **[ypi_avatar]**
 - Avatar (can be multiple)
@@ -34,7 +35,7 @@ Shortcode
 
 Widgets
 -------------------
-- Place the widget to specified content panel and set corresponding options. There are two kinds of widgets.
+Place the widget to specified content panel and set corresponding options. There are two kinds of widgets.
 
 **YPI Avatar**
 - Avatar (can be multiple)
