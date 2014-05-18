@@ -56,7 +56,8 @@ function render_ypi_avatar($attr)
  */
 function render_ypi_panel($attr)
 {
-    $x = shortcode_atts(array(Resource::SHORT_TAG_CHAPTER_URL=>null,  Resource::SHORT_TAG_IS_AUTOSTART=>true,  Resource::SHORT_TAG_INIT_STATE=>  Resource::DEFAULT_INIT_STATE,  Resource::SHORT_TAG_IS_SOUND_ENABLED=>false), $attr);   
+    $p = shortcode_atts(array(Resource::SHORT_TAG_CHAPTER_URL=>null,  Resource::SHORT_TAG_IS_AUTOSTART=>true,  Resource::SHORT_TAG_INIT_STATE=>  Resource::DEFAULT_INIT_STATE,  Resource::SHORT_TAG_IS_SOUND_ENABLED=>false), $attr);
+    $x = YpiRender::getInstance()->getSanitizedArray($p);   
     $params =  array(Resource::PARAM_IS_AUTOSTART=>$x[Resource::SHORT_TAG_IS_AUTOSTART],  Resource::PARAM_INIT_STATE=>$x[Resource::SHORT_TAG_INIT_STATE],  Resource::PARAM_CHAPTER_URL=>$x[Resource::SHORT_TAG_CHAPTER_URL]);    
     if($params[Resource::PARAM_CHAPTER_URL]!=null)
     {    
