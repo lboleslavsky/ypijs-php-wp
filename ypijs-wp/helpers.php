@@ -138,7 +138,7 @@ class YpiRender
         $content = '<div class="region '.$classes.'">'.$avatarContent.'<div id="'.$params[Resource::PARAM_BUBBLE_ID].'" class="'.Resource::DEFAULT_BUBBLE_CSS_CLASS.'" '.$style.'></div></div>';
         YpiBox::getInstance()->addAvatar($params);
         return $content;
-    }
+    }   
     
     /**
      * Render panel 
@@ -163,9 +163,9 @@ class YpiRender
      */
     public function renderInputField($id, $name,$value)
     {
-        $content='<input type="text" class="widefat" name='.$name.' id="'.$id.'" value="'.$value.'"></input>'; 
+        $content='<input type="text" class="widefat" name='.esc_attr($name).' id="'.esc_attr($id).'" value="'.esc_attr($value).'"></input>'; 
         return $content;
-    }
+    }   
     
     /**
      * Render label
@@ -186,5 +186,20 @@ class YpiRender
     public function isPanelRenderAllowed()
     {
         return $this->canRenderPanel;
+    }
+    
+    /**
+     * Sanitize whole array
+     * @param type $x array
+     * @return type sanizized array
+     */
+    public function getSanitizedArray($x)
+    {
+        $y = array();
+        foreach($x as $key=>$value)
+        {
+            $y[$key] = esc_attr($value);
+        }
+        return $y;
     }
 }

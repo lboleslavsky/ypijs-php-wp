@@ -34,10 +34,12 @@ function on_script_required()
  */
 function render_ypi_avatar($attr)
 {
-    $x = shortcode_atts(
+    $p = shortcode_atts(
               array(Resource::SHORT_TAG_ATTR_SPEED=>  Resource::DEFAULT_SPEED,  Resource::SHORT_TAG_ATTR_ALIAS=>Resource::DEFAULT_EMPTY,
                     Resource::SHORT_TAG_ATTR_NAME=>  Resource::DEFAULT_AVATAR_NAME,Resource::SHORT_TAG_ATTR_BUBBLE_ID=>null, 
-                    Resource::SHORT_TAG_CUSTOM_CSS=>  Resource::DEFAULT_EMPTY, Resource::SHORT_TAG_AVATAR_IMG=>  Resource::DEFAULT_AVATAR_IMG,  Resource::SHORT_TAG_AVATAR_H=>null, Resource::SHORT_TAG_AVATAR_W=>null), $attr);    
+                    Resource::SHORT_TAG_CUSTOM_CSS=>  Resource::DEFAULT_EMPTY, Resource::SHORT_TAG_AVATAR_IMG=>  Resource::DEFAULT_AVATAR_IMG,  Resource::SHORT_TAG_AVATAR_H=>null, Resource::SHORT_TAG_AVATAR_W=>null), $attr);        
+    
+    $x = YpiRender::getInstance()->getSanitizedArray($p);    
     
     $params = array(Resource::PARAM_SPEED=>$x[Resource::SHORT_TAG_ATTR_SPEED],  Resource::PARAM_NAME=>$x[Resource::SHORT_TAG_ATTR_NAME],  Resource::PARAM_BUBBLE_ID=>$x[Resource::SHORT_TAG_ATTR_BUBBLE_ID],  
                     Resource::PARAM_ALIAS=>$x[Resource::SHORT_TAG_ATTR_ALIAS], Resource::PARAM_AVATAR_IMG=>$x[Resource::SHORT_TAG_AVATAR_IMG],  Resource::PARAM_AVATAR_W=>$x[Resource::SHORT_TAG_AVATAR_W],

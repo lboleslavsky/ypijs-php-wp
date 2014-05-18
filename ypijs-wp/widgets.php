@@ -72,7 +72,7 @@ class YpiPanelWidget extends YpiBaseWidget {
     {  
         $initState = $this->getValueOrDefault(Resource::PARAM_INIT_STATE,$instance,Resource::DEFAULT_INIT_STATE);
         $chapterUrl = $this->getValueOrDefault(Resource::PARAM_CHAPTER_URL,$instance,Resource::DEFAULT_CHAPTER_URL);       
-        $params = array(Resource::PARAM_IS_AUTOSTART=>true,Resource::PARAM_INIT_STATE=>$initState,Resource::PARAM_CHAPTER_URL=>$chapterUrl);              
+        $params = YpiRender::getInstance()->getSanitizedArray(array(Resource::PARAM_IS_AUTOSTART=>true,Resource::PARAM_INIT_STATE=>$initState,Resource::PARAM_CHAPTER_URL=>$chapterUrl));              
         if(YpiBox::getInstance()->getInitParams()==null)
         {               
             YpiBox::getInstance()->setInitParams($params);            
@@ -123,8 +123,8 @@ class YpiAvatarWidget extends YpiBaseWidget
         $img = $this->getValueOrDefault(Resource::PARAM_AVATAR_IMG, $instance,  Resource::DEFAULT_AVATAR_IMG);
         $width = $this->getValueOrDefault(Resource::PARAM_AVATAR_W, $instance, null);
         $height = $this->getValueOrDefault(Resource::PARAM_AVATAR_H, $instance, null);
-        $params = array(Resource::PARAM_SPEED=> $speed, Resource::PARAM_NAME=>$name,Resource::PARAM_ALIAS=>$alias,  Resource::PARAM_AVATAR_IMG=>$img,Resource::PARAM_AVATAR_W=>$width,Resource::PARAM_AVATAR_H=>$height);        
-        echo YpiRender::getInstance()->renderAvatar($params,$css);                                     
+        $params = YpiRender::getInstance()->getSanitizedArray(array(Resource::PARAM_SPEED=> $speed, Resource::PARAM_NAME=>$name,Resource::PARAM_ALIAS=>$alias,  Resource::PARAM_AVATAR_IMG=>$img,Resource::PARAM_AVATAR_W=>$width,Resource::PARAM_AVATAR_H=>$height));        
+        echo YpiRender::getInstance()->renderAvatar($params,esc_attr($css));                                     
     }
     
     /**
