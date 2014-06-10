@@ -18,9 +18,9 @@ require_once __DIR__.'/widgets.php';
 function on_script_required()
 {
     wp_register_style(Resource::INCLUDE_YPI_CSS_KEY, plugins_url(Resource::PATH_TO_CSS_FILE,__FILE__));
-    wp_register_script(Resource::INCLUDE_YPI_MIN_KEY,plugins_url(Resource::PATH_TO_YPI_MIN_FILE,__FILE__),array(Resource::INCLUDE_JQUERY_KEY),'1.5.5',true);
-    wp_register_script(Resource::INCLUDE_CUSTOM_KEY, plugins_url(Resource::PATH_TO_CUSTOM_FILE, __FILE__),array(Resource::INCLUDE_YPI_MIN_KEY),'1.5.5',true);
-    wp_register_script(Resource::INCLUDE_YPI_READY_KEY,plugins_url(Resource::PATH_TO_YPI_READY_FILE,__FILE__),array(Resource::INCLUDE_CUSTOM_KEY),'1.5.5',true);
+    wp_register_script(Resource::INCLUDE_YPI_MIN_KEY,plugins_url(Resource::PATH_TO_YPI_MIN_FILE,__FILE__),array(Resource::INCLUDE_JQUERY_KEY),  Resource::DEFAULT_VERSION,true);
+    wp_register_script(Resource::INCLUDE_CUSTOM_KEY, plugins_url(Resource::PATH_TO_CUSTOM_FILE, __FILE__),array(Resource::INCLUDE_YPI_MIN_KEY),Resource::DEFAULT_VERSION,true);
+    wp_register_script(Resource::INCLUDE_YPI_READY_KEY,plugins_url(Resource::PATH_TO_YPI_READY_FILE,__FILE__),array(Resource::INCLUDE_CUSTOM_KEY),Resource::DEFAULT_VERSION,true);
     wp_enqueue_style(Resource::INCLUDE_YPI_CSS_KEY);
     wp_enqueue_script(Resource::INCLUDE_YPI_MIN_KEY);    
     wp_enqueue_script(Resource::INCLUDE_CUSTOM_KEY);

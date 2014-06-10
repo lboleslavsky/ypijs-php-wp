@@ -21,6 +21,7 @@
             avatars[i] = ypi.df.createAvatar(x[i]);
         }
     };
+    init.isExprEnabled=true;
     ypi.df.init(init);    
     ypi.df.invokeInit();   
     //alert(initParams.isEnabled);

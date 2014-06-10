@@ -67,6 +67,7 @@ class Resource {
     const DEFAULT_INIT_STATE = 'n1';
     const DEFAULT_SPEED = 120;
     const DEFAULT_EMPTY = '';
+    const DEFAULT_VERSION = '1.5.7';
     const DEFAULT_NPC_PREFIX = 'npc_';
     const DEFAULT_BUBBLE_CSS_CLASS = 'bubble';
     const DEFAULT_AVATAR_CSS_CLASS = 'avatar'; 
@@ -93,7 +94,7 @@ class Resource {
      * include paths
      */
     const PATH_TO_CSS_FILE = 'template/css/dialog.css';
-    const PATH_TO_YPI_MIN_FILE ='template/js/ypi_min-1.5.5.js';
+    const PATH_TO_YPI_MIN_FILE ='template/js/ypi_min-1.5.7.js';
     const PATH_TO_CUSTOM_FILE='template/js/custom.js';
     const PATH_TO_YPI_READY_FILE='template/js/ypi_ready.js';    
     
