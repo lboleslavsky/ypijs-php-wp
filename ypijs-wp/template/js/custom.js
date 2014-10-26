@@ -2,7 +2,7 @@
 * Parse markups
 * options
 */
-function parseCustomMark(options) {
+function parseCustomMark(options,avatar) {
     options.Element.text("");
     $('#board').html('');
     p = options.Text;
@@ -50,6 +50,13 @@ function parseCustomMark(options) {
                 return;
             }
             options.Element.text(options.Text);
+
+            a = $('<a style="position:absolute;top:2px;right:5px;font-size:small">x</a>');
+            a.click(function () {
+                avatar.skip();
+            });
+            a.appendTo(options.Element.selector);
+
             return p;
         }
         m = p.indexOf(']}', n + 2);    
@@ -103,12 +110,9 @@ function getAttrParams(a) {
 function basicBehavior(avatar)
 {
     $('#' + avatar.getName()).mouseover(function () {
-        avatar.about();
+        avatar.about(avatar.getTextAbout());
     });
     $('#' + avatar.getName()).mouseout(function () {
-        /*if (temp.length == 0) {
-            return;
-        }*/
         avatar.repeat();
     });
 }

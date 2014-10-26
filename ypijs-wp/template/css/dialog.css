@@ -43,6 +43,13 @@
 {
     position:relative;   
     width: 100px;
-    height: 100px;    
+    height: 150px;    
     background:transparent;  
+}
+
+.avatar_box
+{
+    margin:1em;
+    padding:0em 2em;    
+    border:1px dotted lightgray;
 }

@@ -17,16 +17,21 @@ class Resource {
      */
     const SHORT_TAG_AVATAR_NAME = 'ypi_avatar';
     const SHORT_TAG_PANEL_NAME = 'ypi_panel';    
+    const SHORT_TAG_GOTO_NAME = 'ypi_goto';
     const SHORT_TAG_ATTR_NAME = 'name';
+    const SHORT_TAG_ATTR_TARGET = 'target';
     const SHORT_TAG_ATTR_BUBBLE_ID = 'bubbleid';
     const SHORT_TAG_ATTR_SPEED = 'speed';
     const SHORT_TAG_ATTR_ALIAS = 'alias';
+    const SHORT_TAG_ATTR_ABOUT = 'about';
     const SHORT_TAG_CHAPTER_URL = 'chapterurl';
     const SHORT_TAG_INIT_STATE = 'initstate';
+    const SHORT_TAG_GOTO_TITLE = 'title';
     const SHORT_TAG_IS_AUTOSTART = 'isautostart';
     const SHORT_TAG_IS_SOUND_ENABLED = 'issoundenabled';   
     const SHORT_TAG_CUSTOM_CSS = 'class';
     const SHORT_TAG_AVATAR_IMG = 'img';
+    const SHORT_TAG_BUBBLE_DISTANCE='delta';
     const SHORT_TAG_AVATAR_W = 'w';
     const SHORT_TAG_AVATAR_H = 'h';
       
@@ -37,12 +42,16 @@ class Resource {
     const PARAM_BUBBLE_ID = 'BubbleId';
     const PARAM_SPEED = 'Speed';
     const PARAM_ALIAS = 'Alias';
+    const PARAM_ABOUT='TextAbout';
     const PARAM_CHAPTER_URL = 'chapterUrl';
     const PARAM_INIT_STATE = 'initState';
+    const PARAM_TARGET = 'Target';
+    const PARAM_GOTO_TITLE = 'title';
     const PARAM_IS_AUTOSTART='isAutostart';
     const PARAM_IS_SOUND_ENABLED = 'isSoundEnabled';
     const PARAM_CUSTOM_CSS='class';
     const PARAM_AVATAR_IMG ='img';
+    const PARAM_BUBBLE_DISTANCE = 'delta';
     const PARAM_AVATAR_W = 'w';
     const PARAM_AVATAR_H = 'h';
     const WIDGET_PARAM_DESCR = 'description';
@@ -52,6 +61,7 @@ class Resource {
      */
     const VARIABLE_YPI_INIT = 'init';
     const VARIABLE_AVATARS = 'globalArray';
+    const VARIABLE_GOTOS = 'gotos';
     
     /*
      * classname
@@ -67,7 +77,7 @@ class Resource {
     const DEFAULT_INIT_STATE = 'n1';
     const DEFAULT_SPEED = 120;
     const DEFAULT_EMPTY = '';
-    const DEFAULT_VERSION = '1.5.7';
+    const DEFAULT_VERSION = '1.6.3';
     const DEFAULT_NPC_PREFIX = 'npc_';
     const DEFAULT_BUBBLE_CSS_CLASS = 'bubble';
     const DEFAULT_AVATAR_CSS_CLASS = 'avatar'; 
@@ -94,7 +104,7 @@ class Resource {
      * include paths
      */
     const PATH_TO_CSS_FILE = 'template/css/dialog.css';
-    const PATH_TO_YPI_MIN_FILE ='template/js/ypi_min-1.5.7.js';
+    const PATH_TO_YPI_MIN_FILE ='template/js/ypi_min-1.6.3.js';
     const PATH_TO_CUSTOM_FILE='template/js/custom.js';
     const PATH_TO_YPI_READY_FILE='template/js/ypi_ready.js';    
     
@@ -103,6 +113,7 @@ class Resource {
      */
     const FUNC_RENDER_YPI_PANEL = 'render_ypi_panel';
     const FUNC_RENDER_YPI_AVATAR = 'render_ypi_avatar';
+    const FUNC_RENDER_YPI_GOTO_MARK = 'render_ypi_goto';
     const FUNC_REGISTER_YPI_WIDGETS = 'register_ypi_widgets';
     const FUNC_ON_SCRIPT_REQUIRED = 'on_script_required';
     const FUNC_ON_FOOTER='on_footer';    
@@ -137,8 +148,10 @@ class Resource {
     const WIDGET_OPTIONS_AVATAR_ID = 'Avatar ID'; 
     const WIDGET_OPTIONS_SPEED = 'Speech speed';
     const WIDGET_OPTIONS_ALIAS = 'Alias';
+    const WIDGET_OPTIONS_ABOUT = 'About';
     const WIDGET_OPTIONS_CSS = 'CSS class';
     const WIDGET_OPTIONS_IMG = 'Image URL';
     const WIDGET_OPTIONS_W = 'Image Width';
     const WIDGET_OPTIONS_H = 'Image Height';
+    const WIDGET_OPTIONS_BUBBLE_DISTANCE='Bubble distance';
 }

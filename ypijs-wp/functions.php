@@ -3,7 +3,7 @@
 Plugin Name: YPI WP plugin
 Plugin URI: http://ypijs.org
 Description: Make Your Presentation Interface available for WordPress
-Version: 1.0
+Version: 1.1
 Author: lboleslavsky
 Author URI: http://boleslavsky.net
 License: MIT
@@ -37,12 +37,12 @@ function render_ypi_avatar($attr)
     $p = shortcode_atts(
               array(Resource::SHORT_TAG_ATTR_SPEED=>  Resource::DEFAULT_SPEED,  Resource::SHORT_TAG_ATTR_ALIAS=>Resource::DEFAULT_EMPTY,
                     Resource::SHORT_TAG_ATTR_NAME=>  Resource::DEFAULT_AVATAR_NAME,Resource::SHORT_TAG_ATTR_BUBBLE_ID=>null, 
-                    Resource::SHORT_TAG_CUSTOM_CSS=>  Resource::DEFAULT_EMPTY, Resource::SHORT_TAG_AVATAR_IMG=>  Resource::DEFAULT_AVATAR_IMG,  Resource::SHORT_TAG_AVATAR_H=>null, Resource::SHORT_TAG_AVATAR_W=>null), $attr);        
+                    Resource::SHORT_TAG_CUSTOM_CSS=>  Resource::DEFAULT_EMPTY, Resource::SHORT_TAG_AVATAR_IMG=>  Resource::DEFAULT_AVATAR_IMG,  Resource::SHORT_TAG_AVATAR_H=>null, Resource::SHORT_TAG_AVATAR_W=>null, Resource::SHORT_TAG_BUBBLE_DISTANCE=>Resource::DEFAULT_BUBBLE_DISTANCE,Resource::SHORT_TAG_ATTR_ABOUT=>Resource::DEFAULT_EMPTY), $attr);        
     
     $x = YpiRender::getInstance()->getSanitizedArray($p);    
     
     $params = array(Resource::PARAM_SPEED=>$x[Resource::SHORT_TAG_ATTR_SPEED],  Resource::PARAM_NAME=>$x[Resource::SHORT_TAG_ATTR_NAME],  Resource::PARAM_BUBBLE_ID=>$x[Resource::SHORT_TAG_ATTR_BUBBLE_ID],  
-                    Resource::PARAM_ALIAS=>$x[Resource::SHORT_TAG_ATTR_ALIAS], Resource::PARAM_AVATAR_IMG=>$x[Resource::SHORT_TAG_AVATAR_IMG],  Resource::PARAM_AVATAR_W=>$x[Resource::SHORT_TAG_AVATAR_W],
+                    Resource::PARAM_ALIAS=>$x[Resource::SHORT_TAG_ATTR_ALIAS], Resource::PARAM_ABOUT=>$x[Resource::SHORT_TAG_ATTR_ABOUT], Resource::PARAM_AVATAR_IMG=>$x[Resource::SHORT_TAG_AVATAR_IMG],  Resource::PARAM_AVATAR_W=>$x[Resource::SHORT_TAG_AVATAR_W], Resource::PARAM_BUBBLE_DISTANCE=>$x[Resource::SHORT_TAG_BUBBLE_DISTANCE],
                     Resource::PARAM_AVATAR_H=>$x[Resource::SHORT_TAG_AVATAR_H]);
     
     $content = YpiRender::getInstance()->renderAvatar($params,$x[Resource::SHORT_TAG_CUSTOM_CSS]); 
@@ -67,6 +67,15 @@ function render_ypi_panel($attr)
     return $content;
 }
 
+function render_ypi_goto($attr)
+{
+    $p = shortcode_atts(array(Resource::SHORT_TAG_ATTR_NAME=>null, Resource::SHORT_TAG_ATTR_TARGET=>null,Resource::SHORT_TAG_CHAPTER_URL=>null, Resource::SHORT_TAG_GOTO_TITLE=>null,  Resource::SHORT_TAG_INIT_STATE=>  Resource::DEFAULT_INIT_STATE), $attr);
+    $x = YpiRender::getInstance()->getSanitizedArray($p);   
+    $params =  array(Resource::PARAM_NAME=>$x[Resource::SHORT_TAG_ATTR_NAME], Resource::PARAM_TARGET=>$x[Resource::SHORT_TAG_ATTR_TARGET], Resource::PARAM_GOTO_TITLE=>$x[Resource::SHORT_TAG_GOTO_TITLE],Resource::PARAM_INIT_STATE=>$x[Resource::SHORT_TAG_INIT_STATE],  Resource::PARAM_CHAPTER_URL=>$x[Resource::SHORT_TAG_CHAPTER_URL]);    
+    $content = YpiRender::getInstance()->renderGotoHref($params);
+    return $content;
+}
+
 /**
  * Register widgets
  */
@@ -83,6 +92,7 @@ function on_footer()
 {
     wp_localize_script(Resource::INCLUDE_YPI_READY_KEY, Resource::VARIABLE_YPI_INIT,  YpiBox::getInstance()->getInitParams());
     wp_localize_script(Resource::INCLUDE_YPI_READY_KEY, Resource::VARIABLE_AVATARS, json_encode(YpiBox::getInstance()->getAvatars()));
+    wp_localize_script(Resource::INCLUDE_YPI_READY_KEY, Resource::VARIABLE_GOTOS,json_encode(YpiBox::getInstance()->getGotoHrefs()));
 }
 
 /**
@@ -90,6 +100,7 @@ function on_footer()
  */
 add_shortcode(Resource::SHORT_TAG_PANEL_NAME, Resource::FUNC_RENDER_YPI_PANEL);
 add_shortcode(Resource::SHORT_TAG_AVATAR_NAME, Resource::FUNC_RENDER_YPI_AVATAR);
+add_shortcode(Resource::SHORT_TAG_GOTO_NAME, Resource::FUNC_RENDER_YPI_GOTO_MARK);
 
 /**
  * Actions

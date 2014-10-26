@@ -119,11 +119,13 @@ class YpiAvatarWidget extends YpiBaseWidget
         $name = $this->getValueOrDefault(Resource::PARAM_NAME, $instance, Resource::DEFAULT_AVATAR_NAME);
         $speed= $this->getValueOrDefault(Resource::PARAM_SPEED, $instance, Resource::DEFAULT_SPEED);
         $alias = $this->getValueOrDefault(Resource::PARAM_ALIAS, $instance, Resource::DEFAULT_EMPTY); 
+        $about = $this->getValueOrDefault(Resource::PARAM_ABOUT, $instance, Resource::DEFAULT_EMPTY); 
         $css = $this->getValueOrDefault(Resource::PARAM_CUSTOM_CSS, $instance, Resource::DEFAULT_EMPTY);
         $img = $this->getValueOrDefault(Resource::PARAM_AVATAR_IMG, $instance,  Resource::DEFAULT_AVATAR_IMG);
         $width = $this->getValueOrDefault(Resource::PARAM_AVATAR_W, $instance, null);
         $height = $this->getValueOrDefault(Resource::PARAM_AVATAR_H, $instance, null);
-        $params = YpiRender::getInstance()->getSanitizedArray(array(Resource::PARAM_SPEED=> $speed, Resource::PARAM_NAME=>$name,Resource::PARAM_ALIAS=>$alias,  Resource::PARAM_AVATAR_IMG=>$img,Resource::PARAM_AVATAR_W=>$width,Resource::PARAM_AVATAR_H=>$height));        
+        $delta = $this->getValueOrDefault(Resource::PARAM_BUBBLE_DISTANCE, $instance, null);
+        $params = YpiRender::getInstance()->getSanitizedArray(array(Resource::PARAM_SPEED=> $speed, Resource::PARAM_NAME=>$name,Resource::PARAM_ALIAS=>$alias, Resource::PARAM_ABOUT=>$about,  Resource::PARAM_AVATAR_IMG=>$img,Resource::PARAM_AVATAR_W=>$width,Resource::PARAM_AVATAR_H=>$height, Resource::PARAM_BUBBLE_DISTANCE=>$delta));        
         echo YpiRender::getInstance()->renderAvatar($params,esc_attr($css));                                     
     }
     
@@ -134,19 +136,23 @@ class YpiAvatarWidget extends YpiBaseWidget
     public function form($instance) {        
         $name=$this->getFieldOrDefault(Resource::PARAM_NAME,$instance, Resource::DEFAULT_AVATAR_NAME);
         $alias = $this->getFieldOrDefault(Resource::PARAM_ALIAS,$instance, Resource::DEFAULT_EMPTY);
+        $about = $this->getFieldOrDefault(Resource::PARAM_ABOUT,$instance, Resource::DEFAULT_EMPTY);
         $speed = $this->getFieldOrDefault(Resource::PARAM_SPEED,$instance, Resource::DEFAULT_SPEED);      
         $css =$this->getFieldOrDefault(Resource::PARAM_CUSTOM_CSS, $instance, Resource::DEFAULT_EMPTY);
         $img = $this->getFieldOrDefault(Resource::PARAM_AVATAR_IMG, $instance, Resource::DEFAULT_EMPTY);
         $width = $this->getFieldOrDefault(Resource::PARAM_AVATAR_W, $instance, Resource::DEFAULT_EMPTY);
         $height = $this->getFieldOrDefault(Resource::PARAM_AVATAR_H, $instance, Resource::DEFAULT_EMPTY);
+        $delta = $this->getFieldOrDefault(Resource::PARAM_BUBBLE_DISTANCE, $instance, Resource::DEFAULT_BUBBLE_DISTANCE);
         
         $content=$this->getInputField(Resource::PARAM_NAME, $name,  Resource::WIDGET_OPTIONS_AVATAR_ID);
         $content.=$this->getInputField(Resource::PARAM_SPEED, $speed, Resource::WIDGET_OPTIONS_SPEED);
         $content.=$this->getInputField(Resource::PARAM_ALIAS, $alias, Resource::WIDGET_OPTIONS_ALIAS);
+        $content.=$this->getInputField(Resource::PARAM_ABOUT, $about, Resource::WIDGET_OPTIONS_ABOUT);
         $content.=$this->getInputField(Resource::PARAM_CUSTOM_CSS, $css, Resource::WIDGET_OPTIONS_CSS);
         $content.=$this->getInputField(Resource::PARAM_AVATAR_IMG, $img, Resource::WIDGET_OPTIONS_IMG);
         $content.=$this->getInputField(Resource::PARAM_AVATAR_W, $width, Resource::WIDGET_OPTIONS_W);
         $content.=$this->getInputField(Resource::PARAM_AVATAR_H, $height, Resource::WIDGET_OPTIONS_H);
+        $content.=$this->getInputField(Resource::PARAM_BUBBLE_DISTANCE, $delta, Resource::WIDGET_OPTIONS_BUBBLE_DISTANCE);
         echo $content;
     }
 }

@@ -54,6 +54,15 @@ class YpiBox
     }
     
     /**
+     * Add goto href parameters
+     * @param type $params
+     */
+    public function addGotoHref($params)
+    {
+        $this->hrefs[] = $params;
+    }
+    
+    /**
      * Return true if contains key
      * @param type $key key
      * @return type true if contains key 
@@ -72,10 +81,17 @@ class YpiBox
         return $this->avatars;
     }
     
+    public function getGotoHrefs()
+    {
+        return $this->hrefs;
+    }
+
     // array of avatars parameters
-    private $avatars = array();  
+    private $avatars = array();      
     // avatar flags
     private $rendered = array();
+    // array of goto href
+    private $hrefs = array();
     // initial parameters  
     private $initParams=null;
     // singleton
@@ -89,6 +105,7 @@ class YpiRender
 {
     private static $thisInstance = null;
     private $canRenderPanel= true;
+    private $gotoCnt = 0;
     public static function getInstance()
     {
         if(self::$thisInstance==null)
@@ -127,15 +144,13 @@ class YpiRender
                 $h = $params[Resource::PARAM_AVATAR_H];
             }            
             $avatarContent = '<img id="'.$params[Resource::PARAM_NAME].'" class="'.Resource::DEFAULT_AVATAR_CSS_CLASS.'" src="'.$params[Resource::PARAM_AVATAR_IMG].'" width="'.$w.'" height="'.$h.'" />';
-            $style='style="position:absolute;bottom:'.($h + Resource::DEFAULT_BUBBLE_DISTANCE).'px;"';
+            $style='style="position:absolute;bottom:'.($h + $params[Resource::PARAM_BUBBLE_DISTANCE]).'px;"';
         }
         else
         {
             $avatarContent = '<div id="'.$params[Resource::PARAM_NAME].'" class="'.Resource::DEFAULT_AVATAR_CSS_CLASS.'"></div>';
-        }
-         
-        
-        $content = '<div class="region '.$classes.'">'.$avatarContent.'<div id="'.$params[Resource::PARAM_BUBBLE_ID].'" class="'.Resource::DEFAULT_BUBBLE_CSS_CLASS.'" '.$style.'></div></div>';
+        }         
+        $content = /*'<a name="'.$params[Resource::PARAM_NAME].'_area"></a>'.*/'<div class="region '.$classes.'">'.$avatarContent.'<div id="'.$params[Resource::PARAM_BUBBLE_ID].'" class="'.Resource::DEFAULT_BUBBLE_CSS_CLASS.'" '.$style.'></div></div>';
         YpiBox::getInstance()->addAvatar($params);
         return $content;
     }   
@@ -152,6 +167,18 @@ class YpiRender
         } 
         $this->canRenderPanel=false;                                
         return Resource::RENDER_CONTENT_PANEL;
+    } 
+    
+    /**
+    * Render goto href 
+    * @return string HTML
+    */
+    public function renderGotoHref($params)
+    {               
+        $content = '<a id="goto_'.$this->gotoCnt.'" href="#'.$params[Resource::PARAM_TARGET].'" class="tag" title="'.$params[Resource::PARAM_GOTO_TITLE].'">'.$params[Resource::PARAM_NAME].'</a>';
+        YpiBox::getInstance()->addGotoHref($params);
+        $this->gotoCnt++;
+        return $content;
     }   
     
     /**
