@@ -36,12 +36,12 @@ function render_ypi_avatar($attr)
 {
     $p = shortcode_atts(
               array(Resource::SHORT_TAG_ATTR_SPEED=>  Resource::DEFAULT_SPEED,  Resource::SHORT_TAG_ATTR_ALIAS=>Resource::DEFAULT_EMPTY,
-                    Resource::SHORT_TAG_ATTR_NAME=>  Resource::DEFAULT_AVATAR_NAME,Resource::SHORT_TAG_ATTR_BUBBLE_ID=>null, 
+                    Resource::SHORT_TAG_ATTR_NAME=>  Resource::DEFAULT_AVATAR_NAME,Resource::SHORT_TAG_ATTR_BUBBLE_ID=>null, Resource::SHORT_TAG_ATTR_PANEL_ID=>  Resource::DEFAULT_PANEL_ID,
                     Resource::SHORT_TAG_CUSTOM_CSS=>  Resource::DEFAULT_EMPTY, Resource::SHORT_TAG_AVATAR_IMG=>  Resource::DEFAULT_AVATAR_IMG,  Resource::SHORT_TAG_AVATAR_H=>null, Resource::SHORT_TAG_AVATAR_W=>null, Resource::SHORT_TAG_BUBBLE_DISTANCE=>Resource::DEFAULT_BUBBLE_DISTANCE,Resource::SHORT_TAG_ATTR_ABOUT=>Resource::DEFAULT_EMPTY), $attr);        
     
     $x = YpiRender::getInstance()->getSanitizedArray($p);    
     
-    $params = array(Resource::PARAM_SPEED=>$x[Resource::SHORT_TAG_ATTR_SPEED],  Resource::PARAM_NAME=>$x[Resource::SHORT_TAG_ATTR_NAME],  Resource::PARAM_BUBBLE_ID=>$x[Resource::SHORT_TAG_ATTR_BUBBLE_ID],  
+    $params = array(Resource::PARAM_SPEED=>$x[Resource::SHORT_TAG_ATTR_SPEED],  Resource::PARAM_NAME=>$x[Resource::SHORT_TAG_ATTR_NAME],  Resource::PARAM_BUBBLE_ID=>$x[Resource::SHORT_TAG_ATTR_BUBBLE_ID],Resource::PARAM_PANEL_ID=>$x[Resource::SHORT_TAG_ATTR_PANEL_ID],  
                     Resource::PARAM_ALIAS=>$x[Resource::SHORT_TAG_ATTR_ALIAS], Resource::PARAM_ABOUT=>$x[Resource::SHORT_TAG_ATTR_ABOUT], Resource::PARAM_AVATAR_IMG=>$x[Resource::SHORT_TAG_AVATAR_IMG],  Resource::PARAM_AVATAR_W=>$x[Resource::SHORT_TAG_AVATAR_W], Resource::PARAM_BUBBLE_DISTANCE=>$x[Resource::SHORT_TAG_BUBBLE_DISTANCE],
                     Resource::PARAM_AVATAR_H=>$x[Resource::SHORT_TAG_AVATAR_H]);
     
@@ -56,9 +56,9 @@ function render_ypi_avatar($attr)
  */
 function render_ypi_panel($attr)
 {
-    $p = shortcode_atts(array(Resource::SHORT_TAG_CHAPTER_URL=>null,  Resource::SHORT_TAG_IS_AUTOSTART=>true,  Resource::SHORT_TAG_INIT_STATE=>  Resource::DEFAULT_INIT_STATE,  Resource::SHORT_TAG_IS_SOUND_ENABLED=>false), $attr);
+    $p = shortcode_atts(array(Resource::SHORT_TAG_ATTR_ID=>null,Resource::SHORT_TAG_CHAPTER_URL=>null,  Resource::SHORT_TAG_IS_AUTOSTART=>true,  Resource::SHORT_TAG_INIT_STATE=>  Resource::DEFAULT_INIT_STATE,  Resource::SHORT_TAG_IS_SOUND_ENABLED=>false), $attr);
     $x = YpiRender::getInstance()->getSanitizedArray($p);   
-    $params =  array(Resource::PARAM_IS_AUTOSTART=>$x[Resource::SHORT_TAG_IS_AUTOSTART],  Resource::PARAM_INIT_STATE=>$x[Resource::SHORT_TAG_INIT_STATE],  Resource::PARAM_CHAPTER_URL=>$x[Resource::SHORT_TAG_CHAPTER_URL]);    
+    $params =  array(Resource::PARAM_PANEL_ID=>$x[Resource::SHORT_TAG_ATTR_ID],Resource::PARAM_IS_AUTOSTART=>$x[Resource::SHORT_TAG_IS_AUTOSTART],  Resource::PARAM_INIT_STATE=>$x[Resource::SHORT_TAG_INIT_STATE],  Resource::PARAM_CHAPTER_URL=>$x[Resource::SHORT_TAG_CHAPTER_URL]);    
     if($params[Resource::PARAM_CHAPTER_URL]!=null)
     {    
         YpiBox::getInstance()->setInitParams($params);

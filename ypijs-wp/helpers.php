@@ -143,7 +143,7 @@ class YpiRender
             {
                 $h = $params[Resource::PARAM_AVATAR_H];
             }            
-            $avatarContent = '<img id="'.$params[Resource::PARAM_NAME].'" class="'.Resource::DEFAULT_AVATAR_CSS_CLASS.'" src="'.$params[Resource::PARAM_AVATAR_IMG].'" width="'.$w.'" height="'.$h.'" />';
+            $avatarContent = '<img id="'.$params[Resource::PARAM_NAME].'" class="'.Resource::DEFAULT_AVATAR_CSS_CLASS.'" src="'.$params[Resource::PARAM_AVATAR_IMG].'" title="'.$params[Resource::PARAM_ALIAS].'" width="'.$w.'" height="'.$h.'" />';
             $style='style="position:absolute;bottom:'.($h + $params[Resource::PARAM_BUBBLE_DISTANCE]).'px;"';
         }
         else
@@ -165,7 +165,11 @@ class YpiRender
         {
             return Resource::DEFAULT_EMPTY;
         } 
-        $this->canRenderPanel=false;                                
+        $this->canRenderPanel=false;   
+        if($params[Resource::PARAM_PANEL_ID]!=null)
+        {
+            return '<div id="dialog"><ul id="'.$params[Resource::PARAM_PANEL_ID].'"></ul></div>';
+        }
         return Resource::RENDER_CONTENT_PANEL;
     } 
     

@@ -19,6 +19,9 @@ class Resource {
     const SHORT_TAG_PANEL_NAME = 'ypi_panel';    
     const SHORT_TAG_GOTO_NAME = 'ypi_goto';
     const SHORT_TAG_ATTR_NAME = 'name';
+    const SHORT_TAG_ATTR_ID = 'id';
+    const SHORT_TAG_ATTR_PANEL_ID = 'panel';
+    const SHORT_TAG_ATTR_FADEOUT_SPEED = 'fadeout';
     const SHORT_TAG_ATTR_TARGET = 'target';
     const SHORT_TAG_ATTR_BUBBLE_ID = 'bubbleid';
     const SHORT_TAG_ATTR_SPEED = 'speed';
@@ -38,9 +41,11 @@ class Resource {
     /*
      * parameters
      */
-    const PARAM_NAME = 'Name';
+    const PARAM_NAME = 'Name'; 
     const PARAM_BUBBLE_ID = 'BubbleId';
+    const PARAM_PANEL_ID = 'PanelId';
     const PARAM_SPEED = 'Speed';
+    const PARAM_FADEOUT_SPEED = 'FadeOutSpeed';
     const PARAM_ALIAS = 'Alias';
     const PARAM_ABOUT='TextAbout';
     const PARAM_CHAPTER_URL = 'chapterUrl';
@@ -77,10 +82,11 @@ class Resource {
     const DEFAULT_INIT_STATE = 'n1';
     const DEFAULT_SPEED = 120;
     const DEFAULT_EMPTY = '';
-    const DEFAULT_VERSION = '1.6.3';
+    const DEFAULT_VERSION = '1.6.5';
     const DEFAULT_NPC_PREFIX = 'npc_';
     const DEFAULT_BUBBLE_CSS_CLASS = 'bubble';
     const DEFAULT_AVATAR_CSS_CLASS = 'avatar'; 
+    const DEFAULT_PANEL_ID = 'answers';
     const DEFAULT_AVATAR_IMG = 'http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=34';
     const DEFAULT_AVATAR_W = 30;
     const DEFAULT_AVATAR_H = 30;
@@ -104,7 +110,7 @@ class Resource {
      * include paths
      */
     const PATH_TO_CSS_FILE = 'template/css/dialog.css';
-    const PATH_TO_YPI_MIN_FILE ='template/js/ypi_min-1.6.3.js';
+    const PATH_TO_YPI_MIN_FILE ='template/js/ypi_min-1.6.5.js';
     const PATH_TO_CUSTOM_FILE='template/js/custom.js';
     const PATH_TO_YPI_READY_FILE='template/js/ypi_ready.js';    
     

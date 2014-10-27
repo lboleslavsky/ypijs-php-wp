@@ -110,9 +110,11 @@ function getAttrParams(a) {
 function basicBehavior(avatar)
 {
     $('#' + avatar.getName()).mouseover(function () {
-        avatar.about(avatar.getTextAbout());
+        //avatar.about(avatar.getTextAbout());
     });
-    $('#' + avatar.getName()).mouseout(function () {
+    //avatar.getName().attr('title', )
+    
+    $('#' + avatar.getName()).mouseout(function () {        
         avatar.repeat();
     });
 }
